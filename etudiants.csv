@@ -1,0 +1,12 @@
+"id","ville","groupe","nom_etudiant","prenom_etudiant","ville_residence_secondaire","latitude_residence_principale","longitude_residence_principale","latitude_residence_secondaire","longitude_residence_secondaire"
+"2","Lure","LK1","Lorenzi","Bastien","Montbéliard",NULL,NULL,NULL,NULL
+"3","Mulhouse","LK1","Mvula","Sven","Montbéliard",NULL,NULL,NULL,NULL
+"4","Écot","LK1","Jury--Vermot des roches","Grégoire",,NULL,NULL,NULL,NULL
+"5","Fleurey-lès-Faverney","LK1","Pistolet","Florian","Montbéliard",NULL,NULL,NULL,NULL
+"6","Tunis","LK1","Mzoughi","Wassim","Montbéliard",NULL,NULL,NULL,NULL
+"8","Strasbourg","LK2
+","Yilmaz","Semi","Montbéliard",NULL,NULL,NULL,NULL
+"9","Belfort","LK2","Saoud","Nohame","Paris",NULL,NULL,NULL,NULL
+"10","Étouvans","LK1","Marsigaglia","Dylan",,NULL,NULL,NULL,NULL
+"11","Pierrefontaine-lès-Blamont","LK1","Parent","Amaury","Nice",NULL,NULL,NULL,NULL
+"12","Noisy-le-Grand","LK1","Ouajoura","Hamza","Montbéliard",NULL,NULL,NULL,NULL
