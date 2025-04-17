@@ -1,0 +1,84 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #c7d3dd, #5c6b73); /* Gris clair et gris foncé */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #2a2b2e; /* Gris très foncé pour le titre */
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+form {
+    background: #ffffff; /* Blanc pour le formulaire */
+    padding: 2.5rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+input {
+    display: block;
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 100%;
+    max-width: 320px;
+    border: 1px solid #b0bec5; /* Gris clair pour les bords */
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: #5c6b73; /* Gris plus soutenu au focus */
+    box-shadow: 0 0 8px rgba(92, 107, 115, 0.3); /* Ombre légère au focus */
+}
+
+button {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #5c6b73, #2a2b2e); /* Dégradé gris */
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 320px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #7d8d92, #2a2b2e); /* Gris plus clair au survol */
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Message d'alerte ou de notification */
+#message {
+    margin-top: 1rem;
+    color: #e53935; /* Couleur rouge pour les messages d'erreur */
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+}

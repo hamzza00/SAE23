@@ -1,0 +1,466 @@
+:root {
+    --primary: #2A2B2E;
+    --secondary: #5C6B73;
+    --accent: #C7D3DD;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    color: var(--primary);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+#search {
+    width: 60%;
+    margin: 0 auto 3rem;
+    display: block;
+    padding: 1rem 2rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+#search:focus {
+    outline: none;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+}
+
+#meteo {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    perspective: 1000px;
+}
+
+.ville-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+}
+
+.ville-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 35px rgba(173, 216, 230, 0.35);
+}
+
+.coordonnees {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.coord-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.coord-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--secondary);
+}
+
+.meteo-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    margin-top: 1.5rem;
+}
+
+.temperature {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--secondary);
+    position: relative;
+}
+
+.temperature::after {
+    content: '°C';
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: -1.2rem;
+}
+/* États de chargement */
+.ville-card.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+
+/* Éléments spécifiques */
+.student-header {
+    border-bottom: 2px solid var(--secondary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.student-group {
+    background: var(--secondary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+}
+
+.coord-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.coord-value {
+    background: rgba(255,255,255,0.95);
+    padding: 1rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.coord-value:hover {
+    transform: translateY(-3px);
+}
+
+.coord-value.error strong {
+    color: #e74c3c;
+}
+
+.moyenne-header {
+    font-size: 1.2em;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.moyenne-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.error-msg {
+    background: #e74c3c;
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Prévisions météo */
+.weather-forecast {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+}
+
+.forecast-day {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.98);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0.5rem auto;
+    display: block;
+}
+
+.temp-range {
+    font-size: 0.9em;
+    color: var(--secondary);
+    margin-top: 0.5rem;
+}
+
+.weather-description {
+    font-size: 0.85em;
+    color: var(--primary);
+    margin-top: 0.3rem;
+}
+.weather-container {
+    margin-top: 10px;
+    font-size: 12px; /* Réduit la taille de la météo */
+    color: #777;
+}
+
+.weather-today {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.weather-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.weather-date, .weather-temp, .weather-conditions {
+    margin: 0;
+}
+
+.coord-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.coord-value {
+    font-size: 14px;
+}
+
+.coord-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.moyenne-info {
+    margin-top: 15px;
+    padding: 5px;
+    background-color: #eee;
+}
+
+.moyenne-value {
+    font-size: 12px;
+}
+
+.moyenne-header {
+    font-weight: bold;
+}
+.meteo-jours {
+    margin-top: 1em;
+    font-size: 0.85em;
+    opacity: 0.95;
+}
+.jour {
+    margin-bottom: 3px;
+}
+/* Supprimer le soulignement du lien */
+a {
+    text-decoration: none;
+}
+
+/* Style du bouton */
+button {
+    background-color: #f44336; /* Couleur rouge */
+    color: white;
+    padding: 15px 32px; /* Espacement interne */
+    text-align: center;
+    font-size: 16px; /* Taille du texte */
+    border: none; /* Enlever la bordure par défaut */
+    border-radius: 25px; /* Coins arrondis */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Effet de survol */
+button:hover {
+    background-color: #d32f2f; /* Couleur rouge plus foncée au survol */
+    transform: scale(1.05); /* Légère augmentation de la taille */
+}
+
+/* Effet de focus */
+button:focus {
+    outline: none; /* Retirer le contour au focus */
+}
+
+/* Effet au clic */
+button:active {
+    background-color: #b71c1c; /* Couleur rouge encore plus foncée au clic */
+}
+/* Style pour le bouton "Voir la météo" */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6f7173; /* Gris clair */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px; /* Style circulaire */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #5d6060; /* Gris plus foncé au survol */
+}
+
+/* Style pour le bouton "Se déconnecter" */
+.logout-btn {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn:hover {
+    background-color: darkred; /* Rouge foncé au survol */
+}
+
+/* Conteneur des boutons en bas de la page */
+.button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Assure que les boutons sont au-dessus des autres éléments */
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+/* Style pour le bouton "Voir la météo" */
+.btn {
+    background-color: #717273; /* Gris clair */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #606363; /* Gris plus foncé au survol */
+}
+
+/* Style pour le bouton "Se déconnecter" */
+.logout-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 25px; /* Style arrondi */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: darkred; /* Rouge foncé au survol */
+}
+/* Style pour l'affichage discret des moyennes en haut à droite */
+.average-coordinates {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    width: 250px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    opacity: 0.9;
+}
+
+.average-coordinates h3 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #444;
+}
+
+.average-values {
+    line-height: 1.5;
+    text-align: left;
+}
+
+.average-values div {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.average-values div strong {
+    color: #222;
+}
+
+
+@media (max-width: 768px) {
+    #search {
+        width: 90%;
+        padding: 0.8rem 1.5rem;
+    }
+    
+
+    
+    .coordonnees {
+        grid-template-columns: 1fr;
+    }
+}

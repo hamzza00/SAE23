@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordonnées géographiques des villes</title>
+</head>
+<body>
+    <h1>Latitude et Longitude des Villes</h1>
+    <div id="meteo">Chargement des données...</div>
+
+    <script>
+        const API_KEY = "3d676299aa460a30af4bcd9b166b12f1"; // ta clé OpenWeather
+
+        fetch("http://localhost/tondossier/getDATA.php")
+          .then(response => response.json())
+          .then(etudiants => {
+              const container = document.getElementById("meteo");
+              container.innerHTML = "";
+
+              etudiants.forEach(etudiant => {
+                  const ville = etudiant.ville;
+                  const prenom = etudiant.prenom_etudiant;
+                  const nom = etudiant.nom_etudiant;
+
+                  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${ville}&lang=fr&units=metric&appid=${API_KEY}`;
+
+                  fetch(URL)
+                    .then(res => res.json())
+                    .then(data => {
+                        const coordHTML = `
+                            <div style="margin-bottom: 15px;">
+                                <strong>${prenom} ${nom} — ${data.name}</strong><br>
+                                📍 Latitude : ${data.coord.lat}, Longitude : ${data.coord.lon}
+                            </div>
+                        `;
+                        container.innerHTML += coordHTML;
+                    })
+                    .catch(err => {
+                        console.error("Erreur météo pour", ville, err);
+                        container.innerHTML += `<p>Erreur pour ${ville}</p>`;
+                    });
+              });
+          })
+          .catch(error => {
+              console.error("Erreur PHP :", error);
+              document.getElementById("meteo").innerText = "Impossible de récupérer les villes.";
+          });
+    </script>
+</body>
+</html>

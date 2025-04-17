@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Historique Météo</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8f8f8; padding: 20px; }
+        h1 { color: #333; }
+        table { border-collapse: collapse; width: 100%; background: white; box-shadow: 0 0 10px #ccc; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Historique Météo</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Étudiant</th>
+                <th>Date</th>
+                <th>Ville Principale</th>
+                <th>Température (°C)</th>
+                <th>Pression (hPa)</th>
+                <th>Ville Secondaire</th>
+                <th>Température (°C)</th>
+                <th>Pression (hPa)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($donnees as $row): ?>
+                <tr>
+                    <td><?= htmlspecialchars($row['id_etudiant']) ?></td>
+                    <td><?= htmlspecialchars($row['date_meteo']) ?></td>
+                    <td><?= htmlspecialchars($row['ville_principale']) ?></td>
+                    <td><?= htmlspecialchars($row['temperature_ville_principale']) ?></td>
+                    <td><?= htmlspecialchars($row['pression_atmospherique_ville_principale']) ?></td>
+                    <td><?= htmlspecialchars($row['ville_secondaire']) ?></td>
+                    <td><?= htmlspecialchars($row['temperature_ville_secondaire']) ?></td>
+                    <td><?= htmlspecialchars($row['pression_atmospherique_ville_secondaire']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</body>
+</html>

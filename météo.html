@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo des Villes</title>
+    <link rel="stylesheet" href="météo.css">
+</head>
+<body>
+
+    <!-- Préloader -->
+    <div id="preloader">
+        <p>Chargement...</p>
+    </div>
+
+    <!-- En-tête -->
+    <header>
+        <h1>Prévisions Météo des Villes</h1>
+    </header>
+
+    <!-- Recherche -->
+    <section class="search-container">
+        <input type="text" id="search" placeholder="Rechercher un étudiant...">
+    </section>
+
+    <!-- Météo en direct -->
+    <section id="meteo-container">
+        <h2>Météo Actuelle</h2>
+        <div id="meteo">
+            <!-- Les cartes météo seront ajoutées ici dynamiquement via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Historique météo -->
+    <section id="historique-container">
+        <h2>Historique Météo</h2>
+        <div id="historique">
+            <!-- Les données historiques seront ajoutées ici dynamiquement -->
+        </div>
+    </section>
+
+    <!-- Bouton retour -->
+    <footer>
+        <button onclick="window.location.href='index.html'">Retour</button>
+    </footer>
+
+    <!-- Script -->
+    <script src="meteo.js"></script>
+
+</body>
+</html>

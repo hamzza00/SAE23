@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordonnées géographiques des villes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <h1>Coordonnées graphiques</h1>
+        <input type="text" id="search" placeholder="Recherchez un étudiant...">
+        <div id="meteo">
+            <!-- Les cartes de ville seront ajoutées ici dynamiquement -->
+            <div class="ville-card">
+                <div class="coordonnees">
+                    <div class="coord-item">
+                        <h3>Latitude</h3>
+                        <p class="latitude">48.8566</p>
+                    </div>
+                    <div class="coord-item">
+                        <h3>Longitude</h3>
+                        <p class="longitude">2.3522</p>
+                    </div>
+                </div>
+                <div class="meteo-info">
+                    <div class="temperature">23°C</div>
+                    <div class="description">Nuageux</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bouton pour rediriger vers la page météo -->
+        <!-- Boutons pour rediriger vers la page météo et se déconnecter -->
+<div class="button-container">
+    <a href="météo.html" class="btn">Voir la météo</a>
+    <a href="login.html">
+        <button type="button" class="logout-btn">Se déconnecter</button>
+    </a>
+</div>
+
+
+        <script src="script.js" defer></script>
+    </body>
+</html>
